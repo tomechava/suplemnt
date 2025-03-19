@@ -133,3 +133,5 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # For collectstatic (option
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static/'),
 ]
+
+LOGIN_URL = '/login/'

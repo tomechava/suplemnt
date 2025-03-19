@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <h2 class="h2 mt-md-5 mt-2">Log In</h2>
+    <form method="post" class="form">
+        {% csrf_token %}
+        <div class="row my-md-4">
+            <div class="col-md-3 col-12 offset-md-3">
+                <div class="form-group">
+                    <label for="id_username">Username</label>
+                    {{ form.username }}
+                    <small class="text-danger">{{ form.username.errors }}</small>
+                </div>
+            </div>
+            <div class="col-md-3 col-12">
+                <div class="form-group">
+                    <label for="id_password">Password</label>
+                    {{ form.password }}
+                    <small class="text-danger">{{ form.password.errors }}</small>
+                </div>
+            </div>
+        </div>
+        {% if form.non_field_errors %}
+        <div class="row my-md-4">
+            <div class="col-12 text-center my-4">
+                <div class="text-danger">
+                    {% for error in form.non_field_errors %}
+                    <p>{{ error }}</p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        <div class="row my-md-4">
+            <div class="col-12 text-center my-4">
+                <button type="submit" class="btn btn-primary">Login</button>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}

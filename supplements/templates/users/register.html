@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <h2 class="h2 mt-md-5 mt-2">Registro de Usuario</h2>
+    <form method="post" class="form">
+        {% csrf_token %}
+        <!-- Muestra errores generales del formulario -->
+        {% if form.non_field_errors %}
+        <div class="row my-md-4">
+            <div class="col-md-3 col-12 offset-md-3">
+                <div class="alert alert-danger">
+                    {{ form.non_field_errors }}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        <div class="row my-md-4">
+            <div class="col-md-3 col-12 offset-md-3">
+                <div class="form-group">
+                    <label for="id_first_name">Name</label>
+                    {{ form.first_name }}
+                </div>
+            </div>
+            <div class="col-md-3 col-12">
+                <div class="form-group">
+                    <label for="id_last_name">Last Name</label>
+                    {{ form.last_name }}
+                </div>
+            </div>
+        </div>
+        <div class="row my-md-4">
+            <div class="col-md-3 col-12 offset-md-3">
+                <div class="form-group">
+                    <label for="id_username">Username</label>
+                    {{ form.username }}
+                </div>
+            </div>
+            <div class="col-md-3 col-12">
+                <div class="form-group">
+                    <label for="id_email">Email</label>
+                    {{ form.email }}
+                </div>
+            </div>
+        </div>
+        <div class="row my-md-4">
+            <div class="col-md-3 col-12 offset-md-3">
+                <div class="form-group">
+                    <label for="id_phone">Phone Number</label>
+                    {{ form.phone }}
+                </div>
+            </div>
+            <div class="col-md-3 col-12">
+                <div class="form-group">
+                    <label for="id_password1">Password</label>
+                    {{ form.password1 }}
+                </div>
+            </div>
+        </div>
+        <div class="row my-md-4">
+            <div class="col-md-3 col-12 offset-md-3">
+                <div class="form-group">
+                    <label for="id_password2">Confirm Password</label>
+                    {{ form.password2 }}
+                    <small class="text-danger">{{ form.password2.errors }}</small>
+                </div>
+            </div>
+        </div>
+        <div class="row my-md-4">
+            <div class="col-12 text-center my-4">
+                <button type="submit" class="btn btn-primary">Registrarse</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+{% endblock content %}
