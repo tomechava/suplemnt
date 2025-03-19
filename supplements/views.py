@@ -4,6 +4,7 @@ from django.contrib.auth import login
 from .forms import RegisterForm, LoginForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
 class HomePageView(View):
@@ -64,8 +65,8 @@ class LogoutView(View):
         logout(request)
         return redirect("login")  # Redirige a la página de login después de cerrar sesión
 
-@login_required
-class ProfileView(View):
+
+class ProfileView(LoginRequiredMixin, View):
     template_name = "users/profile.html"
     
     def get(self, request):

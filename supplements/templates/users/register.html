@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
 <div class="container">
-    <h2 class="h2 mt-md-5 mt-2">Registro de Usuario</h2>
+    <h2 class="h2 mt-md-5 mt-2">Register User</h2>
     <form method="post" class="form">
         {% csrf_token %}
         <!-- Muestra errores generales del formulario -->
@@ -67,8 +67,13 @@
             </div>
         </div>
         <div class="row my-md-4">
+            <div class="col-12 text-center mt-4">
+                <a href="/login"><p>Already have an account? Log In</p></a>
+            </div>
+        </div>
+        <div class="row my-md-4">
             <div class="col-12 text-center my-4">
-                <button type="submit" class="btn btn-primary">Registrarse</button>
+                <button type="submit" class="btn btn-primary">Register</button>
             </div>
         </div>
     </form>

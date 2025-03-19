@@ -1,10 +1,33 @@
 {% extends 'base.html' %}
-{% block content %}
-    <h2>Mi Perfil</h2>
-    <p><strong>Nombre:</strong> {{ user.first_name }} {{ user.last_name }}</p>
-    <p><strong>Username:</strong> {{ user.username }}</p>
-    <p><strong>Email:</strong> {{ user.email }}</p>
-    <p><strong>Teléfono:</strong> {{ user.userprofile.phone }}</p>
 
-    <a href="{% url 'logout' %}">Cerrar sesión</a>
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-lg mb-5">
+                <div class="card-header bg-black text-white">
+                    <h2>My Profile</h2>
+                </div>
+                <div class="card-body">
+                    <h4 class="text-center">{{ user.first_name }} {{ user.last_name }}</h4>
+                    <p class="text-muted text-center">@{{ user.username }}</p>
+
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><strong>Email:</strong> {{ user.email }}</li>
+                        <li class="list-group-item"><strong>Phone:</strong> {{ user.userprofile.phone }}</li>
+                    </ul>
+
+                    <div class="text-center mt-4">
+                        <a href="#" class="btn btn-warning">
+                            <i class="fas fa-edit"></i> Edit Profile
+                        </a>
+                        <a href="{% url 'logout' %}" class="btn btn-danger">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
