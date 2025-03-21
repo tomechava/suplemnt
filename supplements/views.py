@@ -178,3 +178,10 @@ class ProductDeleteView(LoginRequiredMixin, View):
         supplement.is_active = False  # Soft delete
         supplement.save()
         return redirect("product_index")
+    
+class LatestSupplementsView(View):
+    template_name = "supplements/latest_supplements.html"
+
+    def get(self, request):
+        supplements = Supplement.objects.filter(is_active=True).order_by('-created_at')[:6]
+        return render(request, self.template_name, {"supplements": supplements})
