@@ -1,23 +1,30 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class="container mt-4">
-    <h2 class="text-center mb-4">Latest Supplements</h2>
-    <div class="row">
-        {% for supplement in supplements %}
-            <div class="col-md-2 mb-4 col.6">
-                <div class="card">
-                    <img src="{{ supplement.image.url }}" class="card-img-top" alt="{{ supplement.name }}">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ supplement.name }}</h5>
-                        <p class="card-text">{{ supplement.brand }}</p>
-                        <p class="card-text"><strong>${{ supplement.price }}</strong></p>
-                        <a href="{% url 'product_detail' slug=supplement.slug %}" class="btn btn-primary">View Details</a>
-                    </div>
-                </div>
-            </div>
-        {% empty %}
-            <p class="text-center">No supplements available.</p>
-        {% endfor %}
+  <h2 class="text-center mb-4">Latest Supplements</h2>
+  <div class="row">
+    {% for supplement in supplements %}
+    <div class="col-md-2 mb-4">
+      <div class="card h-100">
+        <img src="{{ supplement.image.url }}" class="card-img-top" alt="{{ supplement.name }}">
+        <div class="card-body text-center">
+          <h5 class="card-title">{{ supplement.name }}</h5>
+          <p class="card-text">{{ supplement.brand }}</p>
+          <p class="card-text"><strong>${{ supplement.price }}</strong></p>
+          <a href="{% url 'product_detail' supplement.slug %}" class="btn btn-primary">View Details</a>
+          <button class="btn btn-success add-to-cart mt-2"
+                  data-id="{{ supplement.id }}"
+                  data-name="{{ supplement.name }}"
+                  data-price="{{ supplement.price }}">
+            Añadir al carrito
+          </button>
+        </div>
+      </div>
     </div>
+    {% endfor %}
+    {% if supplements|length == 0 %}
+    <p class="text-center">No hay suplementos disponibles.</p>
+    {% endif %}
+  </div>
 </div>
 {% endblock %}
