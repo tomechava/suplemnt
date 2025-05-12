@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container py-5">
+  <h2>Top Sellers</h2>
+  <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4">
+    {% for sup in supplements %}
+    <div class="col mb-5">
+      <div class="card h-100">
+        <img src="{{ sup.image.url }}" class="card-img-top" alt="{{ sup.name }}">
+        <div class="card-body text-center p-4">
+          <h5 class="fw-bolder">{{ sup.name }}</h5>
+          <p>${{ sup.discount_price|default:sup.price }}</p>
+        </div>
+        <div class="card-footer bg-transparent border-top-0">
+          <a href="{% url 'product_detail' slug=sup.slug %}" class="btn btn-outline-dark">Ver detalles</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+    {% if supplements|length == 0 %}
+      <p class="text-center">No hay productos vendidos aún.</p>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

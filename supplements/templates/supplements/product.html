@@ -23,6 +23,42 @@
               data-price="{{ supplement.discount_price|default:supplement.price }}">
         <i class="bi bi-cart-plus"></i> Añadir al carrito
       </button>
+
+      <div class="my-4">
+        <strong>Valoración promedio:</strong>
+        {{ supplement.average_rating|floatformat:1 }} ⭐
+        ({{ supplement.reviews_count }} reseñas)
+      </div>
+
+      {% if user.is_authenticated %}
+      <h4>Deja tu reseña</h4>
+      <form method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+          {{ form.rating.label_tag }} {{ form.rating }}
+          {{ form.rating.errors }}
+        </div>
+        <div class="mb-3">
+          {{ form.comment.label_tag }} {{ form.comment }}
+          {{ form.comment.errors }}
+        </div>
+        <button class="btn btn-primary" type="submit">Enviar reseña</button>
+      </form>
+      {% else %}
+      <p><a href="{% url 'login' %}">Inicia sesión</a> para dejar una reseña.</p>
+      {% endif %}
+
+      <h4 class="mt-5">Reseñas</h4>
+      {% for r in reviews %}
+      <div class="border p-3 mb-3">
+        <strong>{{ r.user.username }}</strong>
+        <span class="text-warning">{{ r.rating }} ⭐</span>
+        <small class="text-muted">{{ r.created_at|date:"d M Y" }}</small>
+        <p>{{ r.comment }}</p>
+      </div>
+      {% empty %}
+      <p>No hay reseñas aún.</p>
+      {% endfor %}
     </div>
   </div>
 
