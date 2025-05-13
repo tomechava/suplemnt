@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% block content %}
 <div class="container py-5">
-  <h2>Top Sellers</h2>
+  <h2>{% trans "Top Sellers" %}</h2>
   <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4">
     {% for sup in supplements %}
     <div class="col mb-5">
@@ -12,13 +13,13 @@
           <p>${{ sup.discount_price|default:sup.price }}</p>
         </div>
         <div class="card-footer bg-transparent border-top-0">
-          <a href="{% url 'product_detail' slug=sup.slug %}" class="btn btn-outline-dark">Ver detalles</a>
+          <a href="{% url 'product_detail' slug=sup.slug %}" class="btn btn-outline-dark">{% trans "View details" %}</a>
         </div>
       </div>
     </div>
     {% endfor %}
     {% if supplements|length == 0 %}
-      <p class="text-center">No hay productos vendidos aún.</p>
+      <p class="text-center">{% trans "No products sold yet." %}</p>
     {% endif %}
   </div>
 </div>

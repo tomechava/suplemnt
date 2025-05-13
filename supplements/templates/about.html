@@ -1,37 +1,32 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %} <!-- Asegúrate de cargar i18n -->
 {% block content %}
 <div class="container mt-5">
     <div class="row text-center">
         <div class="col-md-6 offset-md-3">
-            <h2 class="my-5">About SUPLEMNT</h2>
+            <h2 class="my-5">{% trans "About SUPLEMNT" %}</h2>
             <p>
-                SUPLEMNT is a premium eCommerce platform dedicated to providing top-quality supplements 
-                for athletes, fitness enthusiasts, and individuals seeking a healthier lifestyle. 
-                Our mission is to make high-performance nutrition easily accessible while ensuring 
-                the best quality, transparency, and expert-backed recommendations.
+                {% trans "SUPLEMNT is a premium eCommerce platform dedicated to providing top-quality supplements for athletes, fitness enthusiasts, and individuals seeking a healthier lifestyle. Our mission is to make high-performance nutrition easily accessible while ensuring the best quality, transparency, and expert-backed recommendations." %}
             </p>
             <p>
-                We carefully curate our selection to offer only the best supplements, sourced from 
-                trusted brands and tested for excellence. Whether you're looking for protein powders, 
-                vitamins, or performance boosters, SUPLEMNT is your go-to destination for all your 
-                health and fitness needs.
+                {% trans "We carefully curate our selection to offer only the best supplements, sourced from trusted brands and tested for excellence. Whether you're looking for protein powders, vitamins, or performance boosters, SUPLEMNT is your go-to destination for all your health and fitness needs." %}
             </p>
         </div>
     </div>
 
     <div class="row my-5 text-center">
         <div class="col-md-4">
-            <h4>Quality First</h4>
-            <p>We ensure all our supplements meet the highest industry standards for safety and effectiveness.</p>
+            <h4>{% trans "Quality First" %}</h4>
+            <p>{% trans "We ensure all our supplements meet the highest industry standards for safety and effectiveness." %}</p>
         </div>
         <div class="col-md-4">
-            <h4>Customer-Centered</h4>
-            <p>Our priority is helping you find the right products to support your health and fitness journey.</p>
+            <h4>{% trans "Customer-Centered" %}</h4>
+            <p>{% trans "Our priority is helping you find the right products to support your health and fitness journey." %}</p>
         </div>
         <div class="col-md-4">
-            <h4>Expert-Approved</h4>
-            <p>We work with specialists to offer science-backed supplements for optimal performance.</p>
+            <h4>{% trans "Expert-Approved" %}</h4>
+            <p>{% trans "We work with specialists to offer science-backed supplements for optimal performance." %}</p>
         </div>
     </div>
 </div>

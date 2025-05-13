@@ -48,6 +48,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
 ]
 
 ROOT_URLCONF = 'suplemnt.urls'
@@ -103,14 +104,22 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
+USE_I18N = True
+USE_L10N = True
+USE_TZ = True
 
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
 
-USE_I18N = True
+LANGUAGES = [
+    ('en', 'English'),
+    ('es', 'Español'),
+]
 
-USE_TZ = True
+LOCALE_PATHS = [
+    BASE_DIR / 'locale',
+]
 
 
 # Default primary key field type

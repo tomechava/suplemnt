@@ -1,20 +1,21 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% block content %}
 <div class="container">
-    <h2 class="h2 mt-md-5 mt-2">Log In</h2>
+    <h2 class="h2 mt-md-5 mt-2">{% trans "Log In" %}</h2>
     <form method="post" class="form">
         {% csrf_token %}
         <div class="row my-md-4">
             <div class="col-md-3 col-12 offset-md-3">
                 <div class="form-group">
-                    <label for="id_username">Username</label>
+                    <label for="id_username">{% trans "Username" %}</label>
                     {{ form.username }}
                     <small class="text-danger">{{ form.username.errors }}</small>
                 </div>
             </div>
             <div class="col-md-3 col-12">
                 <div class="form-group">
-                    <label for="id_password">Password</label>
+                    <label for="id_password">{% trans "Password" %}</label>
                     {{ form.password }}
                     <small class="text-danger">{{ form.password.errors }}</small>
                 </div>
@@ -33,12 +34,12 @@
         {% endif %}
         <div class="row my-md-4">
             <div class="col-12 text-center mt-4">
-                <a href="/register"><p>Dont have an account? Register</p></a>
+                <a href="/register"><p>{% trans "Don't have an account? Register" %}</p></a>
             </div>
         </div>
         <div class="row my-md-4">
             <div class="col-12 text-center my-4">
-                <button type="submit" class="btn btn-primary">Login</button>
+                <button type="submit" class="btn btn-primary">{% trans "Login" %}</button>
             </div>
         </div>
     </form>

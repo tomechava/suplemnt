@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 {% block content %}
 <div class="container">
-    <h2 class="h2 mt-md-5 mt-2">Register User</h2>
+    <h2 class="h2 mt-md-5 mt-2">{% trans "Register User" %}</h2>
     <form method="post" class="form">
         {% csrf_token %}
         <!-- Muestra errores generales del formulario -->
@@ -18,13 +19,13 @@
         <div class="row my-md-4">
             <div class="col-md-3 col-12 offset-md-3">
                 <div class="form-group">
-                    <label for="id_first_name">Name</label>
+                    <label for="id_first_name">{% trans "Name" %}</label>
                     {{ form.first_name }}
                 </div>
             </div>
             <div class="col-md-3 col-12">
                 <div class="form-group">
-                    <label for="id_last_name">Last Name</label>
+                    <label for="id_last_name">{% trans "Last Name" %}</label>
                     {{ form.last_name }}
                 </div>
             </div>
@@ -32,13 +33,13 @@
         <div class="row my-md-4">
             <div class="col-md-3 col-12 offset-md-3">
                 <div class="form-group">
-                    <label for="id_username">Username</label>
+                    <label for="id_username">{% trans "Username" %}</label>
                     {{ form.username }}
                 </div>
             </div>
             <div class="col-md-3 col-12">
                 <div class="form-group">
-                    <label for="id_email">Email</label>
+                    <label for="id_email">{% trans "Email" %}</label>
                     {{ form.email }}
                 </div>
             </div>
@@ -46,13 +47,13 @@
         <div class="row my-md-4">
             <div class="col-md-3 col-12 offset-md-3">
                 <div class="form-group">
-                    <label for="id_phone">Phone Number</label>
+                    <label for="id_phone">{% trans "Phone Number" %}</label>
                     {{ form.phone }}
                 </div>
             </div>
             <div class="col-md-3 col-12">
                 <div class="form-group">
-                    <label for="id_password1">Password</label>
+                    <label for="id_password1">{% trans "Password" %}</label>
                     {{ form.password1 }}
                 </div>
             </div>
@@ -60,7 +61,7 @@
         <div class="row my-md-4">
             <div class="col-md-3 col-12 offset-md-3">
                 <div class="form-group">
-                    <label for="id_password2">Confirm Password</label>
+                    <label for="id_password2">{% trans "Confirm Password" %}</label>
                     {{ form.password2 }}
                     <small class="text-danger">{{ form.password2.errors }}</small>
                 </div>
@@ -68,12 +69,12 @@
         </div>
         <div class="row my-md-4">
             <div class="col-12 text-center mt-4">
-                <a href="/login"><p>Already have an account? Log In</p></a>
+                <a href="/login"><p>{% trans "Already have an account? Log In" %}</p></a>
             </div>
         </div>
         <div class="row my-md-4">
             <div class="col-12 text-center my-4">
-                <button type="submit" class="btn btn-primary">Register</button>
+                <button type="submit" class="btn btn-primary">{% trans "Register" %}</button>
             </div>
         </div>
     </form>

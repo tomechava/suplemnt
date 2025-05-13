@@ -1,42 +1,44 @@
 {% extends 'base.html' %}
-{% load static %}
+{% load i18n %}
 {% block content %}
 <header class="bg-dark py-5">
   <div class="container text-center text-white">
-    <h1 class="fw-bolder">Our Supplements</h1>
-    <p class="lead text-white-50">Find the perfect supplement for your needs.</p>
+    <h1 class="fw-bolder">{% trans "Our Supplements" %}</h1>
+    <p class="lead text-white-50">{% trans "Find the perfect supplement for your needs." %}</p>
   </div>
 </header>
 
 <section class="py-5">
   <div class="container">
-    <!-- Filtros de categoría -->
+    <!-- Category filters -->
     <div class="d-flex justify-content-center mb-4">
-      <a href="{% url 'product_index' %}" class="btn {% if not selected_category %}btn-dark{% else %}btn-outline-dark{% endif %} me-2">Todos</a>
+      <a href="{% url 'product_index' %}"
+        class="btn {% if not selected_category %}btn-dark{% else %}btn-outline-dark{% endif %} me-2">{% trans "All"%}</a>
       {% for category in categories %}
-        <a href="{% url 'product_index' %}?category={{ category.slug }}" 
-           class="btn {% if selected_category == category.slug %}btn-dark{% else %}btn-outline-dark{% endif %} me-2">
-          {{ category.name }}
-        </a>
+      <a href="{% url 'product_index' %}?category={{ category.slug }}"
+        class="btn {% if selected_category == category.slug %}btn-dark{% else %}btn-outline-dark{% endif %} me-2">
+        {{ category.name }}
+      </a>
       {% endfor %}
     </div>
 
-    <!-- Botón crear (autenticados) -->
+    <!-- Create button (authenticated users) -->
     {% if user.is_authenticated %}
     <div class="text-end mb-4">
       <a href="{% url 'product_create' %}" class="btn btn-success">
-        <i class="bi bi-plus-circle"></i> Create Product
+        <i class="bi bi-plus-circle"></i> {% trans "Create Product" %}
       </a>
     </div>
     {% endif %}
 
-    <!-- Lista de productos -->
+    <!-- Product list -->
     <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4">
       {% for supplement in supplements %}
       <div class="col mb-5">
         <div class="card h-100">
           {% if supplement.discount_price %}
-          <div class="badge bg-dark text-white position-absolute" style="top:0.5rem; right:0.5rem">Offer</div>
+          <div class="badge bg-dark text-white position-absolute" style="top:0.5rem; right:0.5rem">{% trans "Offer" %}
+          </div>
           {% endif %}
           {% if supplement.image %}
           {% endif %}
@@ -45,19 +47,17 @@
             <h5 class="fw-bolder">{{ supplement.name }}</h5>
             <p class="text-muted">{{ supplement.brand }}</p>
             {% if supplement.discount_price %}
-              <span class="text-muted text-decoration-line-through">${{ supplement.price }}</span>
-              ${{ supplement.discount_price }}
+            <span class="text-muted text-decoration-line-through">${{ supplement.price }}</span>
+            ${{ supplement.discount_price }}
             {% else %}
-              ${{ supplement.price }}
+            ${{ supplement.price }}
             {% endif %}
           </div>
           <div class="card-footer bg-transparent border-top-0 p-4 d-flex justify-content-between">
-            <a href="{% url 'product_detail' supplement.slug %}" class="btn btn-outline-dark">View</a>
-            <button class="btn btn-dark add-to-cart"
-                    data-id="{{ supplement.id }}"
-                    data-name="{{ supplement.name }}"
-                    data-price="{{ supplement.discount_price|default:supplement.price }}">
-              <i class="bi bi-cart-plus"></i> Add to Cart
+            <a href="{% url 'product_detail' supplement.slug %}" class="btn btn-outline-dark">{% trans "View" %}</a>
+            <button class="btn btn-dark add-to-cart" data-id="{{ supplement.id }}" data-name="{{ supplement.name }}"
+              data-price="{{ supplement.discount_price|default:supplement.price }}">
+              <i class="bi bi-cart-plus"></i> {% trans "Add to Cart" %}
             </button>
           </div>
         </div>
@@ -65,7 +65,8 @@
       {% endfor %}
       {% if supplements|length == 0 %}
       <p class="text-center">
-        No products found in this category.
+        {% trans "No products found in this category." %}
+      </p>
       {% endif %}
     </div>
   </div>

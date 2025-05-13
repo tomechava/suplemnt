@@ -9,6 +9,8 @@ from django.utils.text import slugify
 from .models import Supplement, Category, Review, OrderItem
 from .forms import RegisterForm, LoginForm, SupplementForm, ReviewForm
 
+from django.utils.translation import gettext_lazy as _
+
 # ——— PÁGINAS ESTÁTICAS ———
 
 class HomePageView(View):

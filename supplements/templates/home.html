@@ -1,12 +1,13 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 {% block content %}
 <!-- Header-->
 <header class="bg-dark py-5">
     <div class="container px-4 px-lg-5 my-5">
         <div class="text-center text-white">
-            <h1 class="display-4 fw-bolder">Fuel Your Performance.</h1>
-            <p class="lead fw-normal text-white-50 mb-0">Elevate Your Life.</p>
+            <h1 class="display-4 fw-bolder">{% trans "Fuel Your Performance." %}</h1>
+            <p class="lead fw-normal text-white-50 mb-0">{% trans "Elevate Your Life." %}</p>
         </div>
     </div>
 </header>
@@ -19,7 +20,8 @@
                 <div class="card h-100">
                     <!-- Sale badge-->
                     {% if supplement.discount_price %}
-                    <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale
+                    <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">
+                        {% trans "Sale" %}
                     </div>
                     {% endif %}
                     <!-- Product image-->
@@ -53,14 +55,16 @@
                     <!-- Product actions-->
                     <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                         <div class="text-center mb-4">
-                            <a href="{% url 'product_detail' supplement.slug %}" class="btn btn-outline-dark">View</a>
+                            <a href="{% url 'product_detail' supplement.slug %}" class="btn btn-outline-dark">
+                                {% trans "View" %}
+                            </a>
                         </div>
                         <div class="text-center">
                             <button class="btn btn-dark add-to-cart"
                                     data-id="{{ supplement.id }}"
                                     data-name="{{ supplement.name }}"
                                     data-price="{{ supplement.discount_price|default:supplement.price }}">
-                                <i class="bi bi-cart-plus"></i> Add to Cart
+                                <i class="bi bi-cart-plus"></i> {% trans "Add to Cart" %}
                             </button>
                         </div>
                     </div>

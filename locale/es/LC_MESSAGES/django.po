@@ -1,0 +1,375 @@
+# Spanish translations for SUPLEMNT.
+# Copyright (C) 2025 SUPLEMNT
+# This file is distributed under the same license as the SUPLEMNT package.
+# Tomas <tomas@example.com>, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: SUPLEMNT 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-05-13 15:10-0500\n"
+"PO-Revision-Date: 2025-05-13 15:00-0500\n"
+"Last-Translator: Tomas <tomas@example.com>\n"
+"Language-Team: Spanish <es@li.org>\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\supplements\templates\about.html:8
+msgid "About SUPLEMNT"
+msgstr "Acerca de SUPLEMNT"
+
+#: .\supplements\templates\about.html:10
+msgid ""
+"SUPLEMNT is a premium eCommerce platform dedicated to providing top-quality "
+"supplements for athletes, fitness enthusiasts, and individuals seeking a "
+"healthier lifestyle. Our mission is to make high-performance nutrition "
+"easily accessible while ensuring the best quality, transparency, and expert-"
+"backed recommendations."
+msgstr ""
+"SUPLEMNT es una plataforma de comercio electrónico premium dedicada a ofrecer "
+"suplementos de alta calidad para atletas, entusiastas del fitness y personas que "
+"buscan un estilo de vida más saludable. Nuestra misión es hacer que la nutrición "
+"de alto rendimiento sea fácilmente accesible, asegurando la mejor calidad, "
+"transparencia y recomendaciones respaldadas por expertos."
+
+#: .\supplements\templates\about.html:13
+msgid ""
+"We carefully curate our selection to offer only the best supplements, "
+"sourced from trusted brands and tested for excellence. Whether you're "
+"looking for protein powders, vitamins, or performance boosters, SUPLEMNT is "
+"your go-to destination for all your health and fitness needs."
+msgstr ""
+"Seleccionamos cuidadosamente nuestros productos para ofrecer solo los mejores "
+"suplementos, provenientes de marcas confiables y probados para la excelencia. "
+"Ya sea que busques proteínas en polvo, vitaminas o potenciadores del rendimiento, "
+"SUPLEMNT es tu destino ideal para todas tus necesidades de salud y bienestar."
+
+#: .\supplements\templates\about.html:20
+msgid "Quality First"
+msgstr "Calidad primero"
+
+#: .\supplements\templates\about.html:21
+msgid ""
+"We ensure all our supplements meet the highest industry standards for safety "
+"and effectiveness."
+msgstr ""
+"Nos aseguramos de que todos nuestros suplementos cumplan con los más altos "
+"estándares de la industria en términos de seguridad y efectividad."
+
+#: .\supplements\templates\about.html:24
+msgid "Customer-Centered"
+msgstr "Enfoque en el cliente"
+
+#: .\supplements\templates\about.html:25
+msgid ""
+"Our priority is helping you find the right products to support your health "
+"and fitness journey."
+msgstr ""
+"Nuestra prioridad es ayudarte a encontrar los productos adecuados para "
+"apoyar tu salud y tu camino hacia el bienestar físico."
+
+#: .\supplements\templates\about.html:28
+msgid "Expert-Approved"
+msgstr "Aprobado por expertos"
+
+#: .\supplements\templates\about.html:29
+msgid ""
+"We work with specialists to offer science-backed supplements for optimal "
+"performance."
+msgstr ""
+"Trabajamos con especialistas para ofrecer suplementos respaldados por la "
+"ciencia para un rendimiento óptimo."
+
+#: .\supplements\templates\base.html:25
+msgid "Home"
+msgstr "Inicio"
+
+#: .\supplements\templates\base.html:26
+msgid "About"
+msgstr "Acerca de"
+
+#: .\supplements\templates\base.html:28
+msgid "Shop"
+msgstr "Tienda"
+
+#: .\supplements\templates\base.html:30
+msgid "All Products"
+msgstr "Todos los productos"
+
+#: .\supplements\templates\base.html:34
+msgid "New Arrivals"
+msgstr "Novedades"
+
+#: .\supplements\templates\base.html:40
+#: .\supplements\templates\users\profile.html:10
+msgid "My Profile"
+msgstr "Mi perfil"
+
+#: .\supplements\templates\base.html:42
+#: .\supplements\templates\supplements\product.html:47
+#: .\supplements\templates\users\login.html:42
+msgid "Login"
+msgstr "Iniciar sesión"
+
+#: .\supplements\templates\base.html:47
+msgid "Cart"
+msgstr "Carrito"
+
+#: .\supplements\templates\home.html:9
+msgid "Fuel Your Performance."
+msgstr "Impulsa tu rendimiento."
+
+#: .\supplements\templates\home.html:10
+msgid "Elevate Your Life."
+msgstr "Eleva tu vida."
+
+#: .\supplements\templates\home.html:24
+msgid "Sale"
+msgstr "Oferta"
+
+#: .\supplements\templates\home.html:59
+#: .\supplements\templates\supplements\latest_supplements.html:15
+#: .\supplements\templates\supplements\product_index.html:57
+msgid "View"
+msgstr "Ver"
+
+#: .\supplements\templates\home.html:67
+#: .\supplements\templates\supplements\latest_supplements.html:20
+#: .\supplements\templates\supplements\product.html:23
+#: .\supplements\templates\supplements\product.html:78
+#: .\supplements\templates\supplements\product_index.html:60
+msgid "Add to Cart"
+msgstr "Agregar al carrito"
+
+#: .\supplements\templates\supplements\latest_supplements.html:5
+msgid "Latest Supplements"
+msgstr "Últimos suplementos"
+
+#: .\supplements\templates\supplements\latest_supplements.html:27
+msgid "No supplements available."
+msgstr "No hay suplementos disponibles."
+
+#: .\supplements\templates\supplements\product.html:27
+msgid "Average Rating"
+msgstr "Valoración media"
+
+#: .\supplements\templates\supplements\product.html:29
+msgid "reviews"
+msgstr "reseñas"
+
+#: .\supplements\templates\supplements\product.html:33
+msgid "Leave a Review"
+msgstr "Deja una reseña"
+
+#: .\supplements\templates\supplements\product.html:44
+msgid "Send Review"
+msgstr "Enviar reseña"
+
+#: .\supplements\templates\supplements\product.html:47
+msgid "to leave a review."
+msgstr "para dejar una reseña."
+
+#: .\supplements\templates\supplements\product.html:50
+msgid "Reviews"
+msgstr "Reseñas"
+
+#: .\supplements\templates\supplements\product.html:59
+msgid "No reviews yet."
+msgstr "No hay reseñas aún."
+
+#: .\supplements\templates\supplements\product.html:65
+msgid "Related Products"
+msgstr "Productos relacionados"
+
+#: .\supplements\templates\supplements\product_edit.html:19
+msgid "Product name*"
+msgstr "Nombre del producto*"
+
+#: .\supplements\templates\supplements\product_edit.html:26
+msgid "Brand*"
+msgstr "Marca*"
+
+#: .\supplements\templates\supplements\product_edit.html:36
+msgid "Category*"
+msgstr "Categoría*"
+
+#: .\supplements\templates\supplements\product_edit.html:45
+msgid "Description*"
+msgstr "Descripción*"
+
+#: .\supplements\templates\supplements\product_edit.html:55
+msgid "Price*"
+msgstr "Precio*"
+
+#: .\supplements\templates\supplements\product_edit.html:62
+msgid "Discount price"
+msgstr "Precio con descuento"
+
+#: .\supplements\templates\supplements\product_edit.html:73
+msgid "Stock*"
+msgstr "Stock*"
+
+#: .\supplements\templates\supplements\product_edit.html:80
+msgid "Weight*"
+msgstr "Peso*"
+
+#: .\supplements\templates\supplements\product_edit.html:91
+msgid "Flavor"
+msgstr "Sabor"
+
+#: .\supplements\templates\supplements\product_edit.html:98
+msgid "Servings"
+msgstr "Porciones"
+
+#: .\supplements\templates\supplements\product_edit.html:108
+msgid "Ingredients"
+msgstr "Ingredientes"
+
+#: .\supplements\templates\supplements\product_edit.html:117
+msgid "Image*"
+msgstr "Imagen*"
+
+#: .\supplements\templates\supplements\product_edit.html:132
+msgid "Active product"
+msgstr "Producto activo"
+
+#: .\supplements\templates\supplements\product_edit.html:140
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: .\supplements\templates\supplements\product_edit.html:142
+msgid "Update"
+msgstr "Actualizar"
+
+#: .\supplements\templates\supplements\product_edit.html:142
+msgid "Create"
+msgstr "Crear"
+
+#: .\supplements\templates\supplements\product_edit.html:142
+#| msgid "All Products"
+msgid "Product"
+msgstr "Producto"
+
+#: .\supplements\templates\supplements\product_index.html:6
+msgid "Our Supplements"
+msgstr "Nuestros suplementos"
+
+#: .\supplements\templates\supplements\product_index.html:7
+msgid "Find the perfect supplement for your needs."
+msgstr "Encuentra el suplemento perfecto para tus necesidades."
+
+#: .\supplements\templates\supplements\product_index.html:16
+msgid "All"
+msgstr "Todos"
+
+#: .\supplements\templates\supplements\product_index.html:29
+msgid "Create Product"
+msgstr "Crear producto"
+
+#: .\supplements\templates\supplements\product_index.html:40
+msgid "Offer"
+msgstr "Oferta"
+
+#: .\supplements\templates\supplements\product_index.html:68
+msgid "No products found in this category."
+msgstr "No se encontraron productos en esta categoría."
+
+#: .\supplements\templates\supplements\top_sellers.html:5
+msgid "Top Sellers"
+msgstr "Más vendidos"
+
+#: .\supplements\templates\supplements\top_sellers.html:16
+msgid "View details"
+msgstr "Ver detalles"
+
+#: .\supplements\templates\supplements\top_sellers.html:22
+msgid "No products sold yet."
+msgstr "Aún no se han vendido productos."
+
+#: .\supplements\templates\users\cart.html:5
+msgid "Shopping Cart"
+msgstr "Carrito de compras"
+
+#: .\supplements\templates\users\cart.html:10
+msgid "Price"
+msgstr "Precio"
+
+#: .\supplements\templates\users\cart.html:11
+msgid "Quantity"
+msgstr "Cantidad"
+
+#: .\supplements\templates\users\cart.html:12
+
+msgid "Unit Price"
+msgstr "Precio unitario"
+
+#: .\supplements\templates\users\cart.html:13
+#: .\supplements\templates\users\cart.html:22
+msgid "Total"
+msgstr "Total"
+
+#: .\supplements\templates\users\cart.html:14
+msgid "Actions"
+msgstr "Acciones"
+
+#: .\supplements\templates\users\login.html:5
+msgid "Log In"
+msgstr "Iniciar sesión"
+
+#: .\supplements\templates\users\login.html:11
+#: .\supplements\templates\users\register.html:36
+msgid "Username"
+msgstr "Nombre de usuario"
+
+#: .\supplements\templates\users\login.html:18
+#: .\supplements\templates\users\register.html:56
+msgid "Password"
+msgstr "Contraseña"
+
+#: .\supplements\templates\users\login.html:37
+msgid "Don't have an account? Register"
+msgstr "¿No tienes una cuenta? Regístrate"
+
+#: .\supplements\templates\users\profile.html:18
+#: .\supplements\templates\users\register.html:42
+msgid "Email"
+msgstr "Correo electrónico"
+
+#: .\supplements\templates\users\profile.html:24
+msgid "Edit Profile"
+msgstr "Editar perfil"
+
+#: .\supplements\templates\users\profile.html:27
+msgid "Logout"
+msgstr "Cerrar sesión"
+
+#: .\supplements\templates\users\register.html:6
+msgid "Register User"
+msgstr "Registrar usuario"
+
+#: .\supplements\templates\users\register.html:22
+msgid "Name"
+msgstr "Nombre"
+
+#: .\supplements\templates\users\register.html:28
+msgid "Last Name"
+msgstr "Apellido"
+
+#: .\supplements\templates\users\register.html:50
+msgid "Phone Number"
+msgstr "Número de teléfono"
+
+#: .\supplements\templates\users\register.html:64
+msgid "Confirm Password"
+msgstr "Confirmar contraseña"
+
+#: .\supplements\templates\users\register.html:72
+msgid "Already have an account? Log In"
+msgstr "¿Ya tienes una cuenta? Inicia sesión"
+
+#: .\supplements\templates\users\register.html:77
+msgid "Register"
+msgstr "Registrar"
