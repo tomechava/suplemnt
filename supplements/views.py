@@ -13,8 +13,14 @@ from .forms import RegisterForm, LoginForm, SupplementForm, ReviewForm
 
 class HomePageView(View):
     template_name = "home.html"
+    
+    random_supplements = Supplement.objects.filter(is_active=True).order_by('?')[:6]
+    random_supplement = random_supplements.annotate(average_rating=Avg('reviews__rating'))
+    
     def get(self, request):
-        return render(request, self.template_name)
+        return render(request, self.template_name, {
+            "supplements": self.random_supplements,
+        })
 
 class AboutView(View):
     template_name = "about.html"

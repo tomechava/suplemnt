@@ -21,17 +21,17 @@
               data-id="{{ supplement.id }}"
               data-name="{{ supplement.name }}"
               data-price="{{ supplement.discount_price|default:supplement.price }}">
-        <i class="bi bi-cart-plus"></i> Añadir al carrito
+        <i class="bi bi-cart-plus"></i> Add to Cart
       </button>
 
       <div class="my-4">
-        <strong>Valoración promedio:</strong>
+        <strong>Average Rating:</strong>
         {{ supplement.average_rating|floatformat:1 }} ⭐
-        ({{ supplement.reviews_count }} reseñas)
+        ({{ supplement.reviews_count }} reviews)
       </div>
 
       {% if user.is_authenticated %}
-      <h4>Deja tu reseña</h4>
+      <h4>Leave a Review</h4>
       <form method="post">
         {% csrf_token %}
         <div class="mb-3">
@@ -42,13 +42,13 @@
           {{ form.comment.label_tag }} {{ form.comment }}
           {{ form.comment.errors }}
         </div>
-        <button class="btn btn-primary" type="submit">Enviar reseña</button>
+        <button class="btn btn-primary" type="submit">Send Review</button>
       </form>
       {% else %}
-      <p><a href="{% url 'login' %}">Inicia sesión</a> para dejar una reseña.</p>
+      <p><a href="{% url 'login' %}">Login</a> to leave a review.</p>
       {% endif %}
 
-      <h4 class="mt-5">Reseñas</h4>
+      <h4 class="mt-5">Reviews</h4>
       {% for r in reviews %}
       <div class="border p-3 mb-3">
         <strong>{{ r.user.username }}</strong>
@@ -57,13 +57,13 @@
         <p>{{ r.comment }}</p>
       </div>
       {% empty %}
-      <p>No hay reseñas aún.</p>
+      <p>No reviews yet.</p>
       {% endfor %}
     </div>
   </div>
 
   {% if related_products %}
-  <h3 class="mt-5">Productos relacionados</h3>
+  <h3 class="mt-5">Related Products</h3>
   <div class="row">
     {% for rp in related_products %}
     <div class="col-md-3 mb-4">
@@ -73,12 +73,12 @@
           <h6 class="fw-bolder">{{ rp.name }}</h6>
           <p>${{ rp.discount_price|default:rp.price }}</p>
         </div>
-        <div class="card-footer bg-transparent border-top-0">
+        <div class="card-footer bg-transparent border-top-0 text-center">
           <button class="btn btn-dark add-to-cart"
                   data-id="{{ rp.id }}"
                   data-name="{{ rp.name }}"
                   data-price="{{ rp.discount_price|default:rp.price }}">
-            Añadir
+            <i class="bi bi-cart-plus"></i> Add to Cart
           </button>
         </div>
       </div>
