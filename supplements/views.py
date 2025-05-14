@@ -223,6 +223,11 @@ def remove_from_cart(request, id):
         return JsonResponse({'total_items': sum(cart.values())})
     return JsonResponse({'error': 'Método no permitido'}, status=405)
 
+def clear_cart(request):
+    request.session['cart'] = {}
+    request.session.modified = True
+
+
 class CartView(View):
     template_name = "users/cart.html"
     def get(self, request):
@@ -303,6 +308,9 @@ class OrderCreateView(View):
                 order,
                 order.items.all()
             )
+            #Vaciar el carrito
+            clear_cart(request)
+            # Redirigir a la vista de éxito
             return redirect('order_success', order_id=order.id)
 
         return render(request, self.template_name, {

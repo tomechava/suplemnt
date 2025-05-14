@@ -1,10 +1,12 @@
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
 from .views import (
     HomePageView, AboutView,
     RegisterView, LoginView, LogoutView, ProfileView, ProfileEditView,
     ProductIndexView, ProductCreateView, ProductView,
     ProductEditView, ProductDeleteView, LatestSupplementsView,
-    TopSellersView, add_to_cart, remove_from_cart, CartView,
+    TopSellersView, add_to_cart, remove_from_cart, clear_cart, CartView,
     OrderCreateView, OrderSuccessView,
 )
 
@@ -33,8 +35,12 @@ urlpatterns = [
     path('cart/',          CartView.as_view(),            name='cart_view'),
     path('cart/add/<int:id>/', add_to_cart,              name='add_to_cart'),
     path('cart/remove/<int:id>/', remove_from_cart,           name='remove_from_cart'),
+    path('cart/clear/', clear_cart, name='clear_cart'),  # Cambiado a remove_from_cart para limpiar el carrito
 
     # PEDIDOS
     path('order/create/',  OrderCreateView.as_view(),     name='order_create'),
     path('order/success/<int:order_id>/', OrderSuccessView.as_view(), name='order_success'),
 ]
+
+if settings.DEBUG:  # Solo en modo de desarrollo
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
