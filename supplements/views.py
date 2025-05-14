@@ -9,6 +9,7 @@ from django.db.models import Avg, Count
 from django.utils.text import slugify
 from django.contrib import messages
 from django.utils.translation import gettext as _
+from django.shortcuts import render
 
 import random
 
@@ -19,7 +20,7 @@ from .forms import (
     OrderCreateForm, ProfileEditForm
 )
 from .reports import createInvoice
-
+from .gemini_utils import ask_gemini
 
 # ——— PÁGINAS ESTÁTICAS ———
 
@@ -354,3 +355,15 @@ class TopSellersView(View):
         sups.sort(key=lambda s: ids.index(s.id))
         return render(request, self.template_name, {'supplements': sups})
 
+
+class AskGeminiView(LoginRequiredMixin, View):
+    template_name = "supplements/gemini_chat.html"
+    def get(self, request):
+        return render(request, self.template_name)
+    
+    def post(self, request):
+        question = request.POST.get('question')
+        if question:
+            answer = ask_gemini(question)
+            return JsonResponse({'answer': answer})
+        return JsonResponse({'error': 'No question provided'}, status=400)

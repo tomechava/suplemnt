@@ -7,7 +7,7 @@ from .views import (
     ProductIndexView, ProductCreateView, ProductView,
     ProductEditView, ProductDeleteView, LatestSupplementsView,
     TopSellersView, add_to_cart, remove_from_cart, clear_cart, CartView,
-    OrderCreateView, OrderSuccessView, OrderDetailView
+    OrderCreateView, OrderSuccessView, OrderDetailView, AskGeminiView
 )
 
 urlpatterns = [
@@ -41,6 +41,9 @@ urlpatterns = [
     path('order/create/',  OrderCreateView.as_view(),     name='order_create'),
     path('order/success/<int:order_id>/', OrderSuccessView.as_view(), name='order_success'),
     path('order/detail/<int:order_id>/', OrderDetailView.as_view(), name='order_detail'),
+    
+    #API Gemini
+    path('api/chat', AskGeminiView.as_view(), name='gemini_chat'),
 ]
 
 if settings.DEBUG:  # Solo en modo de desarrollo
