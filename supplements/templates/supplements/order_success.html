@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block content %}
+<div class="container py-5 text-center">
+  <h2>{% trans "¡Gracias por tu pedido!" %}</h2>
+  <p>{% blocktrans %}Tu número de pedido es <strong>#{{ order.id }}</strong>.{% endblocktrans %}</p>
+  <a href="{% url 'home' %}" class="btn btn-success">{% trans "Volver al inicio" %}</a>
+</div>
+{% endblock %}

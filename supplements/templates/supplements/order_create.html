@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Finalizar Pedido" %}{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+  <h2 class="mb-4 text-center">{% trans "Confirmar pedido" %}</h2>
+
+  <form method="post" novalidate>
+    {% csrf_token %}
+
+    {# — Campos del formulario: address, city, postal_code — #}
+    {% for field in form %}
+      <div class="mb-3">
+        {{ field.label_tag }}
+        {{ field }}
+        {% if field.errors %}
+          <div class="text-danger small">{{ field.errors|striptags }}</div>
+        {% endif %}
+      </div>
+    {% endfor %}
+
+    {# — Resumen del carrito — #}
+    <h4 class="mt-5 mb-3">{% trans "Resumen del carrito" %}</h4>
+    <ul class="list-group mb-4">
+      {% for item in items %}
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          {{ item.product.name }} (x{{ item.qty }})
+          <span>${{ item.subtotal|floatformat:2 }}</span>
+        </li>
+      {% endfor %}
+      <li class="list-group-item d-flex justify-content-between">
+        <strong>{% trans "Total:" %}</strong>
+        <strong>${{ total|floatformat:2 }}</strong>
+      </li>
+    </ul>
+
+    <div class="text-center">
+      <button type="submit" class="btn btn-primary px-5">
+        {% trans "Confirmar pedido" %}
+      </button>
+    </div>
+  </form>
+</div>
+{% endblock %}
+

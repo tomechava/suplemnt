@@ -2,32 +2,38 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 from django.http import JsonResponse
-from django.db.models import Count, Avg
+from django.db.models import Avg, Count
 from django.utils.text import slugify
+from django.contrib import messages
+from django.utils.translation import gettext as _
+import random
 
-from .models import Supplement, Category, Review, OrderItem
-from .forms import RegisterForm, LoginForm, SupplementForm, ReviewForm
+from .models import Supplement, Category, Review, Order, OrderItem
+from .forms import (
+    RegisterForm, LoginForm,
+    SupplementForm, ReviewForm,
+    OrderCreateForm, ProfileEditForm
+)
 
-from django.utils.translation import gettext_lazy as _
 
 # ——— PÁGINAS ESTÁTICAS ———
 
 class HomePageView(View):
     template_name = "home.html"
-    
-    random_supplements = Supplement.objects.filter(is_active=True).order_by('?')[:6]
-    random_supplement = random_supplements.annotate(average_rating=Avg('reviews__rating'))
-    
     def get(self, request):
+        random_supplements = Supplement.objects.filter(is_active=True).order_by('?')[:6]
         return render(request, self.template_name, {
-            "supplements": self.random_supplements,
+            "supplements": random_supplements,
         })
 
 class AboutView(View):
     template_name = "about.html"
     def get(self, request):
         return render(request, self.template_name)
+
 
 # ——— AUTENTICACIÓN ———
 
@@ -69,8 +75,26 @@ class LogoutView(View):
 class ProfileView(LoginRequiredMixin, View):
     template_name = "users/profile.html"
     def get(self, request):
+        # Obtener la información del usuario
+        profile = request.user.profile
         return render(request, self.template_name, {"user": request.user})
 
+class ProfileEditView(LoginRequiredMixin, View):
+    template_name = "users/profile_edit.html"
+
+    def get(self, request):
+        form = ProfileEditForm(instance=request.user)
+        return render(request, 'users/profile_edit.html', {'form': form})
+    
+    def post(self, request):
+        form = ProfileEditForm(request.POST, request.FILES, instance=request.user)
+        if form.is_valid():
+            form.save()
+            messages.success(request, _("Profile updated successfully."))
+            return redirect('profile')
+        else:
+            messages.error(request, _("Error updating profile."))
+        return render(request, 'users/profile_edit.html', {'form': form})
 # ——— PRODUCTOS ———
 
 class ProductIndexView(View):
@@ -177,6 +201,7 @@ class LatestSupplementsView(View):
         latest = Supplement.objects.filter(is_active=True).order_by('-created_at')[:6]
         return render(request, self.template_name, {"supplements": latest})
 
+
 # ——— CARRITO ———
 
 def add_to_cart(request, id):
@@ -193,12 +218,84 @@ class CartView(View):
         cart = request.session.get('cart', {})
         items, total = [], 0
         for id_str, qty in cart.items():
-            prod = Supplement.objects.get(pk=int(id_str))
+            prod = get_object_or_404(Supplement, pk=int(id_str))
             price = prod.discount_price or prod.price
             subtotal = price * qty
             items.append({'product': prod, 'qty': qty, 'price': price, 'subtotal': subtotal})
             total += subtotal
         return render(request, self.template_name, {'items': items, 'total': total})
+
+
+# ——— PEDIDOS ———
+
+@method_decorator(login_required, name='dispatch')
+class OrderCreateView(View):
+    template_name = "supplements/order_create.html"
+
+    def get(self, request):
+        cart = request.session.get('cart', {})
+        if not cart:
+            return redirect('cart_view')
+
+        # Construir items y total
+        items, total = [], 0
+        for id_str, qty in cart.items():
+            prod = get_object_or_404(Supplement, pk=int(id_str))
+            price = prod.discount_price or prod.price
+            subtotal = price * qty
+            items.append({'product': prod, 'qty': qty, 'subtotal': subtotal})
+            total += subtotal
+
+        form = OrderCreateForm()
+        return render(request, self.template_name, {
+            'form':  form,
+            'items': items,
+            'total': total,
+        })
+
+    def post(self, request):
+        cart = request.session.get('cart', {})
+        if not cart:
+            return redirect('cart_view')
+
+        # Recalcular items y total en caso de error
+        items, total = [], 0
+        for id_str, qty in cart.items():
+            prod = get_object_or_404(Supplement, pk=int(id_str))
+            price = prod.discount_price or prod.price
+            subtotal = price * qty
+            items.append({'product': prod, 'qty': qty, 'subtotal': subtotal})
+            total += subtotal
+
+        form = OrderCreateForm(request.POST)
+        if form.is_valid():
+            order = form.save(commit=False)
+            order.user = request.user
+            order.save()
+            for item in items:
+                OrderItem.objects.create(
+                    order=order,
+                    supplement=item['product'],
+                    price=item['product'].discount_price or item['product'].price,
+                    quantity=item['qty']
+                )
+            request.session['cart'] = {}
+            return redirect('order_success', order_id=order.id)
+
+        return render(request, self.template_name, {
+            'form':  form,
+            'items': items,
+            'total': total,
+        })
+
+
+@method_decorator(login_required, name='dispatch')
+class OrderSuccessView(View):
+    template_name = "supplements/order_success.html"
+    def get(self, request, order_id):
+        order = get_object_or_404(Order, id=order_id, user=request.user)
+        return render(request, self.template_name, {'order': order})
+
 
 # ——— TOP SELLERS ———
 
