@@ -7,7 +7,7 @@ from .views import (
     ProductIndexView, ProductCreateView, ProductView,
     ProductEditView, ProductDeleteView, LatestSupplementsView,
     TopSellersView, add_to_cart, remove_from_cart, clear_cart, CartView,
-    OrderCreateView, OrderSuccessView,
+    OrderCreateView, OrderSuccessView, OrderDetailView
 )
 
 urlpatterns = [
@@ -40,6 +40,7 @@ urlpatterns = [
     # PEDIDOS
     path('order/create/',  OrderCreateView.as_view(),     name='order_create'),
     path('order/success/<int:order_id>/', OrderSuccessView.as_view(), name='order_success'),
+    path('order/detail/<int:order_id>/', OrderDetailView.as_view(), name='order_detail'),
 ]
 
 if settings.DEBUG:  # Solo en modo de desarrollo

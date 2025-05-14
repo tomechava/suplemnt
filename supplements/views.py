@@ -79,7 +79,10 @@ class ProfileView(LoginRequiredMixin, View):
     def get(self, request):
         # Obtener la información del usuario
         profile = request.user.profile
-        return render(request, self.template_name, {"user": request.user})
+        
+        #Orders del usuario
+        orders = Order.objects.filter(user=request.user).order_by('-created_at')
+        return render(request, self.template_name, {"user": request.user, "profile": profile, "orders": orders})
 
 class ProfileEditView(LoginRequiredMixin, View):
     template_name = "users/profile_edit.html"
@@ -327,6 +330,13 @@ class OrderSuccessView(View):
         order = get_object_or_404(Order, id=order_id, user=request.user)
         return render(request, self.template_name, {'order': order})
 
+
+class OrderDetailView(LoginRequiredMixin, View):
+    template_name = "supplements/order_detail.html"
+    def get(self, request, order_id):
+        order = get_object_or_404(Order, id=order_id, user=request.user)
+        items = OrderItem.objects.filter(order=order)
+        return render(request, self.template_name, {'order': order, 'items': items})
 
 # ——— TOP SELLERS ———
 

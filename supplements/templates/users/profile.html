@@ -55,6 +55,39 @@
                 </div>
             </div>
         </div>
+        <div class="col-md-10 col-12">
+            <h2>{% trans "My orders" %}</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>{% trans "Order ID" %}</th>
+                        <th>{% trans "Date" %}</th>
+                        <th>{% trans "Total" %}</th>
+                        <th>{% trans "Status" %}</th>
+                        <th>{% trans "Actions" %}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for order in orders %}
+                        <tr>
+                            <td>{{ order.id }}</td>
+                            <td>{{ order.created_at|date:"Y-m-d-h:m" }}</td>
+                            <td>${{ order.total_cost }}</td>
+                            <td>{{ order.status }}</td>
+                            <td>
+                                <a href="{% url 'order_detail' order.id %}" class="btn btn-primary btn-sm">
+                                    {% trans "View" %}
+                                </a>
+                            </td>
+                        </tr>
+                    {% empty %}
+                        <tr>
+                            <td colspan="5" class="text-center">{% trans "No orders found." %}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 {% endblock %}
