@@ -2,6 +2,10 @@ from django import forms
 from django.contrib.auth.models import User
 from .models import Supplement, Review, Order, Profile
 from django.utils.translation import gettext_lazy as _
+from django.utils import timezone
+import pytz
+#timezone config
+timezone.activate(pytz.timezone('America/Bogota'))
 
 class RegisterForm(forms.ModelForm):
     first_name = forms.CharField(
@@ -149,9 +153,18 @@ class ReviewForm(forms.ModelForm):
 class OrderCreateForm(forms.ModelForm):
     class Meta:
         model = Order
+        created_at = forms.DateTimeField(
+            widget=forms.HiddenInput(),
+            initial=timezone.now
+        )
+        total_cost = forms.DecimalField(
+            widget=forms.HiddenInput(),
+            initial=0.00
+        )
         fields = ['address', 'city', 'postal_code']
         widgets = {
             'address':     forms.TextInput(attrs={'class':'form-control','placeholder':_('Dirección')}),
             'city':        forms.TextInput(attrs={'class':'form-control','placeholder':_('Ciudad')}),
             'postal_code': forms.TextInput(attrs={'class':'form-control','placeholder':_('Código postal')}),
         }
+    

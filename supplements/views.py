@@ -9,6 +9,7 @@ from django.db.models import Avg, Count
 from django.utils.text import slugify
 from django.contrib import messages
 from django.utils.translation import gettext as _
+
 import random
 
 from .models import Supplement, Category, Review, Order, OrderItem
@@ -17,6 +18,7 @@ from .forms import (
     SupplementForm, ReviewForm,
     OrderCreateForm, ProfileEditForm
 )
+from .reports import createInvoice
 
 
 # ——— PÁGINAS ESTÁTICAS ———
@@ -212,6 +214,15 @@ def add_to_cart(request, id):
         return JsonResponse({'total_items': sum(cart.values())})
     return JsonResponse({'error': 'Método no permitido'}, status=405)
 
+def remove_from_cart(request, id):
+    if request.method == 'POST':
+        cart = request.session.get('cart', {})
+        if str(id) in cart:
+            del cart[str(id)]
+            request.session['cart'] = cart
+        return JsonResponse({'total_items': sum(cart.values())})
+    return JsonResponse({'error': 'Método no permitido'}, status=405)
+
 class CartView(View):
     template_name = "users/cart.html"
     def get(self, request):
@@ -271,6 +282,7 @@ class OrderCreateView(View):
         if form.is_valid():
             order = form.save(commit=False)
             order.user = request.user
+            order.total_cost = total
             order.save()
             for item in items:
                 OrderItem.objects.create(
@@ -280,10 +292,21 @@ class OrderCreateView(View):
                     quantity=item['qty']
                 )
             request.session['cart'] = {}
+            # Crear factura
+            createInvoice(
+                f"invoice_{order.id}.pdf",
+                "Invoice",
+                "SUPLEMNT",
+                "Order Invoice",
+                "Order Details",
+                order.user,
+                order,
+                order.items.all()
+            )
             return redirect('order_success', order_id=order.id)
 
         return render(request, self.template_name, {
-            'form':  form,
+            'form': form,
             'items': items,
             'total': total,
         })
@@ -310,3 +333,4 @@ class TopSellersView(View):
         sups = list(Supplement.objects.filter(id__in=ids))
         sups.sort(key=lambda s: ids.index(s.id))
         return render(request, self.template_name, {'supplements': sups})
+

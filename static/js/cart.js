@@ -58,11 +58,37 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     document.querySelector('#cart-total').textContent = `$${total.toFixed(2)}`;
 
+    // Botones "Eliminar del carrito"
     document.querySelectorAll('.remove-from-cart').forEach(btn => {
       btn.addEventListener('click', () => {
-        delete cart[btn.dataset.id];
+        const id = btn.dataset.id;
+        delete cart[id];
         saveCart();
-        location.reload();
+        // Envío al servidor para sesión
+        fetch(`/cart/remove/${id}/`, {
+          method: 'POST',
+          headers: {
+            'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
+          }
+        });
+        // Refrescar la tabla
+        tbody.innerHTML = '';
+        let total = 0;
+        for (const [id, item] of Object.entries(cart)) {
+          const lineTotal = item.price * item.qty;
+          total += lineTotal;
+          tbody.innerHTML += `
+            <tr>
+              <td>${item.name}</td>
+              <td>${item.qty}</td>
+              <td>$${item.price.toFixed(2)}</td>
+              <td>$${lineTotal.toFixed(2)}</td>
+              <td>
+                <button class="btn btn-sm btn-danger remove-from-cart" data-id="${id}">Eliminar</button>
+              </td>
+            </tr>`;
+        }
+        document.querySelector('#cart-total').textContent = `$${total.toFixed(2)}`;
       });
     });
   }

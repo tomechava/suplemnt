@@ -4,7 +4,7 @@ from .views import (
     RegisterView, LoginView, LogoutView, ProfileView, ProfileEditView,
     ProductIndexView, ProductCreateView, ProductView,
     ProductEditView, ProductDeleteView, LatestSupplementsView,
-    TopSellersView, add_to_cart, CartView,
+    TopSellersView, add_to_cart, remove_from_cart, CartView,
     OrderCreateView, OrderSuccessView,
 )
 
@@ -32,6 +32,7 @@ urlpatterns = [
     # CARRITO
     path('cart/',          CartView.as_view(),            name='cart_view'),
     path('cart/add/<int:id>/', add_to_cart,              name='add_to_cart'),
+    path('cart/remove/<int:id>/', remove_from_cart,           name='remove_from_cart'),
 
     # PEDIDOS
     path('order/create/',  OrderCreateView.as_view(),     name='order_create'),

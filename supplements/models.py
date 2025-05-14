@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.db.models import Avg
 from django.utils.translation import gettext_lazy as _
+from django.core.validators import FileExtensionValidator
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
@@ -78,7 +79,16 @@ class Order(models.Model):
     city        = models.CharField(max_length=100, verbose_name=_("City"))
     postal_code = models.CharField(max_length=20, verbose_name=_("Postal code"))
     paid        = models.BooleanField(default=False, verbose_name=_("Paid"))
-
+    total_cost  = models.DecimalField(max_digits=10, decimal_places=2, verbose_name=_("Total cost"))
+    
+    invoice_file = models.FileField(
+        upload_to="invoices/",
+        null=True,
+        blank=True,
+        validators=[FileExtensionValidator(allowed_extensions=["pdf", "xlsx"])],
+        verbose_name=_("Invoice file")
+    )
+    
     class Meta:
         ordering = ['-created_at']
         verbose_name = _("Order")
@@ -100,3 +110,4 @@ class OrderItem(models.Model):
 
     def __str__(self):
         return f"{self.quantity} × {self.supplement.name}"
+
