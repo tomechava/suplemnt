@@ -4,45 +4,45 @@
 {% block content %}
 <div class="container py-5">
     <div class="text-center mb-4">
-        <h1 class="display-5">Order #{{ order.id }}</h1>
-        <p class="text-muted">Placed on {{ order.created_at|date:"F d, Y - H:i" }}</p>
+        <h1 class="display-5">{% trans "Order #" %}{{ order.id }}</h1>
+        <p class="text-muted">{% trans "Placed on " %}{{ order.created_at|date:"F d, Y - H:i" }}</p>
     </div>
 
     <div class="card shadow-sm mb-4">
         <div class="card-header bg-dark text-white">
-            <h5 class="mb-0">Order Summary</h5>
+            <h5 class="mb-0">{% trans "Order Summary" %}</h5>
         </div>
         <div class="card-body">
             <dl class="row mb-0">
-                <dt class="col-sm-3">Customer</dt>
+                <dt class="col-sm-3">{% trans "Customer" %}</dt>
                 <dd class="col-sm-9">{{ order.user.first_name }} {{ order.user.last_name }}</dd>
 
-                <dt class="col-sm-3">Email</dt>
+                <dt class="col-sm-3">{% trans "Email" %}</dt>
                 <dd class="col-sm-9">{{ order.user.email }}</dd>
 
-                <dt class="col-sm-3">Phone</dt>
+                <dt class="col-sm-3">{% trans "Phone" %}</dt>
                 <dd class="col-sm-9">{{ order.user.profile.phone }}</dd>
 
-                <dt class="col-sm-3">Address</dt>
+                <dt class="col-sm-3">{% trans "Address" %}</dt>
                 <dd class="col-sm-9">{{ order.address }}, {{ order.city }} {{ order.postal_code }}</dd>
 
-                <dt class="col-sm-3">Paid</dt>
+                <dt class="col-sm-3">{% trans "Paid" %}</dt>
                 <dd class="col-sm-9">
                     {% if order.paid %}
-                        <span class="badge bg-success">Yes</span>
+                        <span class="badge bg-success">{% trans "Yes" %}</span>
                     {% else %}
-                        <span class="badge bg-danger">No</span>
+                        <span class="badge bg-danger">{% trans "No" %}</span>
                     {% endif %}
                 </dd>
 
-                <dt class="col-sm-3">Total Cost</dt>
+                <dt class="col-sm-3">{% trans "Total Cost" %}</dt>
                 <dd class="col-sm-9">${{ order.total_cost }}</dd>
 
                 {% if order.invoice_file %}
-                    <dt class="col-sm-3">Invoice</dt>
+                    <dt class="col-sm-3">{% trans "Invoice" %}</dt>
                     <dd class="col-sm-9">
                         <a href="{{ order.invoice_file.url }}" class="btn btn-outline-secondary btn-sm" target="_blank">
-                            Download Invoice
+                            {% trans "Download Invoice" %}
                         </a>
                     </dd>
                 {% endif %}
@@ -52,7 +52,7 @@
 
     <div class="card shadow-sm">
         <div class="card-header bg-secondary text-white">
-            <h5 class="mb-0">Items</h5>
+            <h5 class="mb-0">{% trans "Items" %}</h5>
         </div>
         <div class="card-body">
             {% if items %}
@@ -60,10 +60,10 @@
                     <table class="table table-bordered align-middle mb-0">
                         <thead class="table-light">
                             <tr>
-                                <th>Supplement</th>
-                                <th>Quantity</th>
-                                <th>Unit Price</th>
-                                <th>Total</th>
+                                <th>{% trans "Supplement" %}</th>
+                                <th>{% trans "Quantity" %}</th>
+                                <th>{% trans "Unit Price" %}</th>
+                                <th>{% trans "Total" %}</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -79,7 +79,7 @@
                     </table>
                 </div>
             {% else %}
-                <p class="text-muted">No items in this order.</p>
+                <p class="text-muted">{% trans "No items in this order." %}</p>
             {% endif %}
         </div>
     </div>

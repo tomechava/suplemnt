@@ -311,6 +311,8 @@ class OrderCreateView(View):
                 order,
                 order.items.all()
             )
+            order.invoice_file = f"invoices/invoice_{order.id}.pdf"
+            order.save()
             #Vaciar el carrito
             clear_cart(request)
             # Redirigir a la vista de éxito
