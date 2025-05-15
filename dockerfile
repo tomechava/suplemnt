@@ -34,3 +34,6 @@ EXPOSE 80
 
 # Ejecuta Apache en primer plano
 CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
+
+# Asegura permisos legibles
+RUN chmod -R 755 /app
