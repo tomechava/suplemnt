@@ -10,7 +10,7 @@ ARG API_KEY
 ENV API_KEY=${API_KEY}
 
 # Establece el directorio de trabajo
-WORKDIR /app
+WORKDIR /
 
 # Copia los archivos del proyecto
 COPY . .
