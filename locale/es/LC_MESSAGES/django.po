@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SUPLEMNT 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-13 15:10-0500\n"
+"POT-Creation-Date: 2025-05-15 10:55-0500\n"
 "PO-Revision-Date: 2025-05-13 15:00-0500\n"
 "Last-Translator: Tomas <tomas@example.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
@@ -16,6 +16,290 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\supplements\forms.py:12 .\supplements\models.py:24
+#: .\supplements\templates\users\register.html:22
+msgid "Name"
+msgstr "Nombre"
+
+#: .\supplements\forms.py:13
+msgid "Your Name"
+msgstr "Tu nombre"
+
+#: .\supplements\forms.py:16 .\supplements\templates\users\register.html:28
+msgid "Last Name"
+msgstr "Apellido"
+
+#: .\supplements\forms.py:17
+msgid "Your Last Name"
+msgstr "Tu apellido"
+
+#: .\supplements\forms.py:20 .\supplements\forms.py:65
+#: .\supplements\templates\users\login.html:11
+#: .\supplements\templates\users\register.html:36
+msgid "Username"
+msgstr "Nombre de usuario"
+
+#: .\supplements\forms.py:21 .\supplements\forms.py:66
+msgid "Your Username"
+msgstr "Tu nombre de usuario"
+
+#: .\supplements\forms.py:24
+#: .\supplements\templates\supplements\order_detail.html:20
+#: .\supplements\templates\users\register.html:42
+msgid "Email"
+msgstr "Correo electrónico"
+
+#: .\supplements\forms.py:28
+#: .\supplements\templates\supplements\order_detail.html:23
+msgid "Phone"
+msgstr "Teléfono"
+
+#: .\supplements\forms.py:29 .\supplements\forms.py:76
+msgid "Your Phone Number"
+msgstr "Tu número de teléfono"
+
+#: .\supplements\forms.py:32 .\supplements\forms.py:33
+#: .\supplements\forms.py:69 .\supplements\templates\users\login.html:18
+#: .\supplements\templates\users\register.html:56
+msgid "Password"
+msgstr "Contraseña"
+
+#: .\supplements\forms.py:36 .\supplements\templates\users\register.html:64
+msgid "Confirm Password"
+msgstr "Confirmar contraseña"
+
+#: .\supplements\forms.py:37
+msgid "Repeat your Password"
+msgstr "Repite tu contraseña"
+
+#: .\supplements\forms.py:48
+msgid "The passwords do not match."
+msgstr "Las contraseñas no coinciden."
+
+#: .\supplements\forms.py:70
+msgid "Your Password"
+msgstr "Tu contraseña"
+
+#: .\supplements\forms.py:75 .\supplements\templates\users\register.html:50
+msgid "Phone Number"
+msgstr "Número de teléfono"
+
+#: .\supplements\forms.py:94
+msgid "This username is already taken."
+msgstr "Este nombre de usuario ya está en uso."
+
+#: .\supplements\forms.py:100
+msgid "This email is already registered."
+msgstr "Este correo electrónico ya está registrado."
+
+#: .\supplements\forms.py:106
+msgid "This phone number is already registered."
+msgstr "Este número de teléfono ya está registrado."
+
+#: .\supplements\forms.py:128
+msgid "Nombre del producto"
+msgstr "Nombre del producto"
+
+#: .\supplements\forms.py:129
+msgid "Marca"
+msgstr "Marca"
+
+#: .\supplements\forms.py:130
+msgid "Descripción del producto"
+msgstr "Descripción del producto"
+
+#: .\supplements\forms.py:132
+msgid "Precio"
+msgstr "Precio"
+
+#: .\supplements\forms.py:133
+msgid "Precio con descuento (opcional)"
+msgstr "Precio con descuento (opcional)"
+
+#: .\supplements\forms.py:134
+msgid "Cantidad en stock"
+msgstr "Cantidad en stock"
+
+#: .\supplements\forms.py:135
+msgid "Peso"
+msgstr "Peso"
+
+#: .\supplements\forms.py:136
+msgid "Sabor (opcional)"
+msgstr "Sabor (opcional)"
+
+#: .\supplements\forms.py:137
+msgid "Porciones (opcional)"
+msgstr "Porciones (opcional)"
+
+#: .\supplements\forms.py:138
+msgid "Ingredientes (opcional)"
+msgstr "Ingredientes (opcional)"
+
+#: .\supplements\forms.py:166
+msgid "Dirección"
+msgstr "Dirección"
+
+#: .\supplements\forms.py:167
+msgid "Ciudad"
+msgstr "Ciudad"
+
+#: .\supplements\forms.py:168
+msgid "Código postal"
+msgstr "Código postal"
+
+#: .\supplements\models.py:16
+msgid "Category name"
+msgstr "Nombre de categoría"
+
+#: .\supplements\models.py:17 .\supplements\models.py:25
+msgid "Slug"
+msgstr "Slug"
+
+#: .\supplements\models.py:26
+msgid "Brand"
+msgstr "Marca"
+
+#: .\supplements\models.py:27
+msgid "Description"
+msgstr "Descripción"
+
+#: .\supplements\models.py:28
+msgid "Category"
+msgstr "Categoría"
+
+#: .\supplements\models.py:29 .\supplements\templates\users\cart.html:13
+msgid "Price"
+msgstr "Precio"
+
+#: .\supplements\models.py:30
+#: .\supplements\templates\supplements\product_edit.html:62
+msgid "Discount price"
+msgstr "Precio con descuento"
+
+#: .\supplements\models.py:31
+msgid "Stock"
+msgstr "Stock"
+
+#: .\supplements\models.py:32
+msgid "Image"
+msgstr "Imagen"
+
+#: .\supplements\models.py:33
+msgid "Weight"
+msgstr "Peso"
+
+#: .\supplements\models.py:34
+#: .\supplements\templates\supplements\product_edit.html:91
+msgid "Flavor"
+msgstr "Sabor"
+
+#: .\supplements\models.py:35
+#: .\supplements\templates\supplements\product_edit.html:98
+msgid "Servings"
+msgstr "Porciones"
+
+#: .\supplements\models.py:36
+#: .\supplements\templates\supplements\product_edit.html:108
+msgid "Ingredients"
+msgstr "Ingredientes"
+
+#: .\supplements\models.py:37
+msgid "Active"
+msgstr "Activo"
+
+#: .\supplements\models.py:38 .\supplements\models.py:64
+#: .\supplements\models.py:77
+msgid "Created at"
+msgstr "Creado el"
+
+#: .\supplements\models.py:39
+msgid "Updated at"
+msgstr "Actualizado el"
+
+#: .\supplements\models.py:43 .\supplements\models.py:60
+#: .\supplements\models.py:103
+#: .\supplements\templates\supplements\order_detail.html:63
+msgid "Supplement"
+msgstr "Suplemento"
+
+#: .\supplements\models.py:44
+msgid "Supplements"
+msgstr "Suplementos"
+
+#: .\supplements\models.py:61 .\supplements\models.py:76
+msgid "User"
+msgstr "Usuario"
+
+#: .\supplements\models.py:62
+msgid "Rating"
+msgstr "Valoración"
+
+#: .\supplements\models.py:63
+msgid "Comment"
+msgstr "Comentario"
+
+#: .\supplements\models.py:68
+msgid "Review"
+msgstr "Reseña"
+
+#: .\supplements\models.py:69
+#: .\supplements\templates\supplements\product.html:50
+msgid "Reviews"
+msgstr "Reseñas"
+
+#: .\supplements\models.py:78
+#: .\supplements\templates\supplements\order_detail.html:26
+msgid "Address"
+msgstr "Dirección"
+
+#: .\supplements\models.py:79
+msgid "City"
+msgstr "Ciudad"
+
+#: .\supplements\models.py:80
+msgid "Postal code"
+msgstr "Código postal"
+
+#: .\supplements\models.py:81
+#: .\supplements\templates\supplements\order_detail.html:29
+msgid "Paid"
+msgstr "Pagado"
+
+#: .\supplements\models.py:82
+msgid "Total cost"
+msgstr "Costo total"
+
+#: .\supplements\models.py:89
+msgid "Invoice file"
+msgstr "Archivo de factura"
+
+#: .\supplements\models.py:94 .\supplements\models.py:102
+msgid "Order"
+msgstr "Pedido"
+
+#: .\supplements\models.py:95
+msgid "Orders"
+msgstr "Pedidos"
+
+#: .\supplements\models.py:104
+msgid "Unit price"
+msgstr "Precio unitario"
+
+#: .\supplements\models.py:105
+#: .\supplements\templates\supplements\order_detail.html:64
+#: .\supplements\templates\users\cart.html:11
+msgid "Quantity"
+msgstr "Cantidad"
+
+#: .\supplements\models.py:108
+msgid "Order item"
+msgstr "Artículo del pedido"
+
+#: .\supplements\models.py:109
+msgid "Order items"
+msgstr "Artículos del pedido"
 
 #: .\supplements\templates\about.html:8
 msgid "About SUPLEMNT"
@@ -29,11 +313,11 @@ msgid ""
 "easily accessible while ensuring the best quality, transparency, and expert-"
 "backed recommendations."
 msgstr ""
-"SUPLEMNT es una plataforma de comercio electrónico premium dedicada a ofrecer "
-"suplementos de alta calidad para atletas, entusiastas del fitness y personas que "
-"buscan un estilo de vida más saludable. Nuestra misión es hacer que la nutrición "
-"de alto rendimiento sea fácilmente accesible, asegurando la mejor calidad, "
-"transparencia y recomendaciones respaldadas por expertos."
+"SUPLEMNT es una plataforma de comercio electrónico premium dedicada a "
+"ofrecer suplementos de alta calidad para atletas, entusiastas del fitness y "
+"personas que buscan un estilo de vida más saludable. Nuestra misión es hacer "
+"que la nutrición de alto rendimiento sea fácilmente accesible, asegurando la "
+"mejor calidad, transparencia y recomendaciones respaldadas por expertos."
 
 #: .\supplements\templates\about.html:13
 msgid ""
@@ -42,10 +326,11 @@ msgid ""
 "looking for protein powders, vitamins, or performance boosters, SUPLEMNT is "
 "your go-to destination for all your health and fitness needs."
 msgstr ""
-"Seleccionamos cuidadosamente nuestros productos para ofrecer solo los mejores "
-"suplementos, provenientes de marcas confiables y probados para la excelencia. "
-"Ya sea que busques proteínas en polvo, vitaminas o potenciadores del rendimiento, "
-"SUPLEMNT es tu destino ideal para todas tus necesidades de salud y bienestar."
+"Seleccionamos cuidadosamente nuestros productos para ofrecer solo los "
+"mejores suplementos, provenientes de marcas confiables y probados para la "
+"excelencia. Ya sea que busques proteínas en polvo, vitaminas o potenciadores "
+"del rendimiento, SUPLEMNT es tu destino ideal para todas tus necesidades de "
+"salud y bienestar."
 
 #: .\supplements\templates\about.html:20
 msgid "Quality First"
@@ -103,18 +388,23 @@ msgstr "Todos los productos"
 msgid "New Arrivals"
 msgstr "Novedades"
 
-#: .\supplements\templates\base.html:40
+#: .\supplements\templates\base.html:38
+#: .\supplements\templates\supplements\gemini_chat.html:6
+msgid "Nutrition AI"
+msgstr "IA de Nutrición"
+
+#: .\supplements\templates\base.html:43
 #: .\supplements\templates\users\profile.html:10
 msgid "My Profile"
 msgstr "Mi perfil"
 
-#: .\supplements\templates\base.html:42
+#: .\supplements\templates\base.html:45
 #: .\supplements\templates\supplements\product.html:47
 #: .\supplements\templates\users\login.html:42
 msgid "Login"
 msgstr "Iniciar sesión"
 
-#: .\supplements\templates\base.html:47
+#: .\supplements\templates\base.html:50
 msgid "Cart"
 msgstr "Carrito"
 
@@ -133,6 +423,7 @@ msgstr "Oferta"
 #: .\supplements\templates\home.html:59
 #: .\supplements\templates\supplements\latest_supplements.html:15
 #: .\supplements\templates\supplements\product_index.html:57
+#: .\supplements\templates\users\profile.html:79
 msgid "View"
 msgstr "Ver"
 
@@ -144,6 +435,18 @@ msgstr "Ver"
 msgid "Add to Cart"
 msgstr "Agregar al carrito"
 
+#: .\supplements\templates\supplements\gemini_chat.html:13
+msgid "Your Question:"
+msgstr "Tu pregunta:"
+
+#: .\supplements\templates\supplements\gemini_chat.html:17
+msgid "Send"
+msgstr "Enviar"
+
+#: .\supplements\templates\supplements\gemini_chat.html:18
+msgid "Reset Chat"
+msgstr "Reiniciar chat"
+
 #: .\supplements\templates\supplements\latest_supplements.html:5
 msgid "Latest Supplements"
 msgstr "Últimos suplementos"
@@ -151,6 +454,91 @@ msgstr "Últimos suplementos"
 #: .\supplements\templates\supplements\latest_supplements.html:27
 msgid "No supplements available."
 msgstr "No hay suplementos disponibles."
+
+#: .\supplements\templates\supplements\order_create.html:4
+msgid "Finalizar Pedido"
+msgstr "Finalizar Pedido"
+
+#: .\supplements\templates\supplements\order_create.html:8
+#: .\supplements\templates\supplements\order_create.html:41
+msgid "Confirmar pedido"
+msgstr "Confirmar pedido"
+
+#: .\supplements\templates\supplements\order_create.html:25
+msgid "Resumen del carrito"
+msgstr "Resumen del carrito"
+
+#: .\supplements\templates\supplements\order_create.html:34
+#: .\supplements\templates\users\cart.html:23
+msgid "Total:"
+msgstr "Total:"
+
+#: .\supplements\templates\supplements\order_detail.html:7
+msgid "Order #"
+msgstr "Pedido #"
+
+#: .\supplements\templates\supplements\order_detail.html:8
+msgid "Placed on "
+msgstr "Realizado el "
+
+#: .\supplements\templates\supplements\order_detail.html:13
+msgid "Order Summary"
+msgstr "Resumen del pedido"
+
+#: .\supplements\templates\supplements\order_detail.html:17
+msgid "Customer"
+msgstr "Cliente"
+
+#: .\supplements\templates\supplements\order_detail.html:32
+msgid "Yes"
+msgstr "Sí"
+
+#: .\supplements\templates\supplements\order_detail.html:34
+msgid "No"
+msgstr "No"
+
+#: .\supplements\templates\supplements\order_detail.html:38
+msgid "Total Cost"
+msgstr "Costo total"
+
+#: .\supplements\templates\supplements\order_detail.html:42
+msgid "Invoice"
+msgstr "Factura"
+
+#: .\supplements\templates\supplements\order_detail.html:45
+msgid "Download Invoice"
+msgstr "Descargar factura"
+
+#: .\supplements\templates\supplements\order_detail.html:55
+msgid "Items"
+msgstr "Artículos"
+
+#: .\supplements\templates\supplements\order_detail.html:65
+#: .\supplements\templates\users\cart.html:12
+msgid "Unit Price"
+msgstr "Precio unitario"
+
+#: .\supplements\templates\supplements\order_detail.html:66
+#: .\supplements\templates\users\cart.html:14
+#: .\supplements\templates\users\profile.html:65
+msgid "Total"
+msgstr "Total"
+
+#: .\supplements\templates\supplements\order_detail.html:82
+msgid "No items in this order."
+msgstr "No hay artículos en este pedido."
+
+#: .\supplements\templates\supplements\order_success.html:8
+msgid "¡Gracias por tu pedido!"
+msgstr "¡Gracias por tu pedido!"
+
+#: .\supplements\templates\supplements\order_success.html:11
+msgid "Your order number is "
+msgstr "Tu número de pedido es "
+
+#: .\supplements\templates\supplements\order_success.html:14
+msgid "Volver al inicio"
+msgstr "Volver al inicio"
 
 #: .\supplements\templates\supplements\product.html:27
 msgid "Average Rating"
@@ -171,10 +559,6 @@ msgstr "Enviar reseña"
 #: .\supplements\templates\supplements\product.html:47
 msgid "to leave a review."
 msgstr "para dejar una reseña."
-
-#: .\supplements\templates\supplements\product.html:50
-msgid "Reviews"
-msgstr "Reseñas"
 
 #: .\supplements\templates\supplements\product.html:59
 msgid "No reviews yet."
@@ -204,10 +588,6 @@ msgstr "Descripción*"
 msgid "Price*"
 msgstr "Precio*"
 
-#: .\supplements\templates\supplements\product_edit.html:62
-msgid "Discount price"
-msgstr "Precio con descuento"
-
 #: .\supplements\templates\supplements\product_edit.html:73
 msgid "Stock*"
 msgstr "Stock*"
@@ -215,18 +595,6 @@ msgstr "Stock*"
 #: .\supplements\templates\supplements\product_edit.html:80
 msgid "Weight*"
 msgstr "Peso*"
-
-#: .\supplements\templates\supplements\product_edit.html:91
-msgid "Flavor"
-msgstr "Sabor"
-
-#: .\supplements\templates\supplements\product_edit.html:98
-msgid "Servings"
-msgstr "Porciones"
-
-#: .\supplements\templates\supplements\product_edit.html:108
-msgid "Ingredients"
-msgstr "Ingredientes"
 
 #: .\supplements\templates\supplements\product_edit.html:117
 msgid "Image*"
@@ -249,7 +617,7 @@ msgid "Create"
 msgstr "Crear"
 
 #: .\supplements\templates\supplements\product_edit.html:142
-#| msgid "All Products"
+#: .\supplements\templates\users\cart.html:10
 msgid "Product"
 msgstr "Producto"
 
@@ -289,82 +657,79 @@ msgstr "Ver detalles"
 msgid "No products sold yet."
 msgstr "Aún no se han vendido productos."
 
-#: .\supplements\templates\users\cart.html:5
+#: .\supplements\templates\users\cart.html:6
 msgid "Shopping Cart"
 msgstr "Carrito de compras"
 
-#: .\supplements\templates\users\cart.html:10
-msgid "Price"
-msgstr "Precio"
-
-#: .\supplements\templates\users\cart.html:11
-msgid "Quantity"
-msgstr "Cantidad"
-
-#: .\supplements\templates\users\cart.html:12
-
-msgid "Unit Price"
-msgstr "Precio unitario"
-
-#: .\supplements\templates\users\cart.html:13
-#: .\supplements\templates\users\cart.html:22
-msgid "Total"
-msgstr "Total"
-
-#: .\supplements\templates\users\cart.html:14
+#: .\supplements\templates\users\cart.html:15
+#: .\supplements\templates\users\profile.html:67
 msgid "Actions"
 msgstr "Acciones"
+
+#: .\supplements\templates\users\cart.html:34
+msgid "Create Order"
+msgstr "Crear pedido"
 
 #: .\supplements\templates\users\login.html:5
 msgid "Log In"
 msgstr "Iniciar sesión"
 
-#: .\supplements\templates\users\login.html:11
-#: .\supplements\templates\users\register.html:36
-msgid "Username"
-msgstr "Nombre de usuario"
-
-#: .\supplements\templates\users\login.html:18
-#: .\supplements\templates\users\register.html:56
-msgid "Password"
-msgstr "Contraseña"
-
 #: .\supplements\templates\users\login.html:37
 msgid "Don't have an account? Register"
 msgstr "¿No tienes una cuenta? Regístrate"
 
-#: .\supplements\templates\users\profile.html:18
-#: .\supplements\templates\users\register.html:42
-msgid "Email"
-msgstr "Correo electrónico"
+#: .\supplements\templates\users\profile.html:23
+msgid "Name:"
+msgstr "Nombre:"
 
-#: .\supplements\templates\users\profile.html:24
+#: .\supplements\templates\users\profile.html:29
+msgid "Last name"
+msgstr "Apellido:"
+
+#: .\supplements\templates\users\profile.html:35
+msgid "Email:"
+msgstr "Correo electrónico:"
+
+#: .\supplements\templates\users\profile.html:41
+msgid "Phone Number:"
+msgstr "Número de teléfono:"
+
+#: .\supplements\templates\users\profile.html:49
+#: .\supplements\templates\users\profile_edit.html:10
 msgid "Edit Profile"
 msgstr "Editar perfil"
 
-#: .\supplements\templates\users\profile.html:27
+#: .\supplements\templates\users\profile.html:52
 msgid "Logout"
 msgstr "Cerrar sesión"
+
+#: .\supplements\templates\users\profile.html:59
+msgid "My orders"
+msgstr "Mis pedidos"
+
+#: .\supplements\templates\users\profile.html:63
+msgid "Order ID"
+msgstr "ID del pedido"
+
+#: .\supplements\templates\users\profile.html:64
+msgid "Date"
+msgstr "Fecha"
+
+#: .\supplements\templates\users\profile.html:66
+msgid "Status"
+msgstr "Estado"
+
+#: .\supplements\templates\users\profile.html:85
+msgid "No orders found."
+msgstr "No se encontraron pedidos."
+
+#: .\supplements\templates\users\profile_edit.html:37
+msgid "Save Changes"
+msgstr "Guardar cambios"
 
 #: .\supplements\templates\users\register.html:6
 msgid "Register User"
 msgstr "Registrar usuario"
-
-#: .\supplements\templates\users\register.html:22
-msgid "Name"
-msgstr "Nombre"
-
-#: .\supplements\templates\users\register.html:28
-msgid "Last Name"
-msgstr "Apellido"
-
-#: .\supplements\templates\users\register.html:50
-msgid "Phone Number"
-msgstr "Número de teléfono"
-
-#: .\supplements\templates\users\register.html:64
-msgid "Confirm Password"
-msgstr "Confirmar contraseña"
 
 #: .\supplements\templates\users\register.html:72
 msgid "Already have an account? Log In"
@@ -373,3 +738,11 @@ msgstr "¿Ya tienes una cuenta? Inicia sesión"
 #: .\supplements\templates\users\register.html:77
 msgid "Register"
 msgstr "Registrar"
+
+#: .\supplements\views.py:124
+msgid "Profile updated successfully."
+msgstr "Perfil actualizado correctamente."
+
+#: .\supplements\views.py:127
+msgid "Error updating profile."
+msgstr "Error al actualizar el perfil."
