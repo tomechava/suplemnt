@@ -145,4 +145,4 @@ STATICFILES_DIRS = [
 
 LOGIN_URL = '/login/'
 
-GEMINI_API_KEY = 'AIzaSyBRyuVAd5dGzILzgBPri_WrtvaI8qT7pks'
+GEMINI_API_KEY = os.getenv("API_KEY")
